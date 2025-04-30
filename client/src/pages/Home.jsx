@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/layout/Navbar'
-import HeroSection from '../components/sections/HeroSection'
+import HeroSection from '../components/sections/HeroSection/HeroSection'
+import VisionSection from '../components/sections/VisionSection/VisionSection'
 
 const Home = () => {
 
@@ -8,6 +9,7 @@ const Home = () => {
     <main className='max-w-[1000px] mx-auto '>
       <Navbar/>
       <HeroSection/>
+      <VisionSection/>
     </main>
   )
 }
