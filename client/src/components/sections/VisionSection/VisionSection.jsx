@@ -5,7 +5,7 @@ const VisionSection = () => {
   return (
 
     // Vision Section
-    <section className='flex gap-20 justify-center'> 
+    <section className='flex gap-20 py-[75px]'> 
 
       <div className='flex flex-col gap-20'>
         <VisionCard
