@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import briskwalk1 from '../../../assets/briswalk1.jpg'
 import StatsCard from './StatsCard'
+import Button from '../../common/Button'
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+
+const journeys = [
+  {
+    image: briskwalk1,
+    stats: [
+      { name: 'distance', stats: '22.24 km' },
+      { name: 'moving time', stats: '5:31:57' },
+      { name: 'max elevation', stats: '65 m' },
+      { name: 'avg pace', stats: '14:56 /km' },
+      { name: 'elevation gain', stats: '213 m' },
+      { name: 'steps', stats: '27,842' },
+    ]
+  },
+]
 
 const JourneySection = () => {
+  const [index, setIndex] = useState(0);
+
+  // carousell navigation logic
+  const next = () => setIndex((prev) => (prev + 1) % journeys.length);
+  const prev = () => setIndex((prev) => (prev - 1 + journeys.length) % journeys.length);
+  const current = journeys[index];
+
   return (
 
     // Journey Section
-    <section className='flex flex-col gap-15'>
+    <section className='flex flex-col gap-15 py-[75px]'>
       <div>
         <h1 className='capitalize font-bold text-5xl'>
           the journeys
@@ -25,34 +48,28 @@ const JourneySection = () => {
 
         {/* Stats Card */}
         <div className='grid grid-cols-2 gap-10'>
-          <StatsCard
-            name={'distance'}
-            stats={'22.24 km'}
-          />
-          <StatsCard
-            name={'moving time'}
-            stats={'5:31:57'}
-          />
-          <StatsCard
-            name={'max elevation'}
-            stats={'65 m'}
-          />
-          <StatsCard
-            name={'avg pace'}
-            stats={'14:56 /km'}
-          />
-          <StatsCard
-            name={'elevation gain'}
-            stats={'213 m'}
-          />
-          <StatsCard
-            name={'steps'}
-            stats={'27,842'}
-          />
+          {current.stats.map((s, i) => (
+            <StatsCard
+              key={i}
+              name={s.name}
+              stats={s.stats}
+            />
+          ))}
         </div>
       </div>
-      <div>
 
+      {/* Button - switch to  */}
+      <div className='flex flex-row gap-4'>
+        <Button
+          children={<FaArrowLeft/>}
+          onClick={prev}
+          className='px-3 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+        />
+        <Button
+          children={<FaArrowRight/>}
+          onClick={next}
+          className='px-3 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+        />
       </div>
     </section>
   )
