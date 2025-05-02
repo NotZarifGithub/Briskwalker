@@ -6,11 +6,11 @@ import { FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className='flex justify-between items-center py-[75px]'>
+    <footer className='flex justify-between items-center max-w-[600px] mx-auto w-full'>
 
       <div>
-        <p className='font-bold italic'>
-          Briswalker
+        <p className='font-medium italic text-sm'>
+          Briskwalker
         </p>
       </div>
       <div>
