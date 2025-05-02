@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import briskwalk1 from '../../../assets/briswalk1.jpg'
+import briskwalk1 from '../../../assets/briskwalk1.jpg'
 import StatsCard from './StatsCard'
 import Button from '../../common/Button'
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
