@@ -8,14 +8,11 @@ import JourneySection from '../components/sections/JourneySection/JourneySection
 
 const Home = () => {
   return (
-    <main className='max-w-[800px] mx-auto '>
+    <div className='py-8 flex flex-col gap-5 px-6 sm:px-12'>
       <Navbar/>
       <HeroSection/>
-      <JourneySection/>
-      <VisionSection/>
-      <FaqSection/>
       <Footer/>
-    </main>
+    </div>
   )
 }
 

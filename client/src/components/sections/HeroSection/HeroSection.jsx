@@ -5,10 +5,10 @@ const HeroSection = () => {
   return (
 
     // Hero Section
-    <section className='flex flex-col items-center justify-center text-center min-h-[600px] pb-[100px] w-full mx-auto max-w-[400px] gap-8'>
+    <main className='flex flex-col items-center justify-center text-center min-h-[calc(100vh-184px)] w-full mx-auto max-w-[300px] sm:max-w-[400px] gap-8'>
 
       <div>
-        <h1 className='capitalize text-5xl font-bold'>
+        <h1 className='capitalize font-bold text-4xl sm:text-5xl'>
           plan your perfect briswalking adventure today
         </h1>
       </div>
@@ -30,7 +30,7 @@ const HeroSection = () => {
           children={"Watch Video"}
         />
       </div>
-    </section>
+    </main>
   )
 }
 
