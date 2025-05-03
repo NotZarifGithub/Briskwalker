@@ -29,48 +29,51 @@ const Navbar = () => {
     <header
       className='flex justify-center items-center gap-2'
     >
+
+      {/* Topbar */}
       <div className='flex items-center gap-2'>
-      <div
-        className='bg-[#232323] flex items-center p-1 rounded-md outline outline-black gap-2' 
-      >
-        <Logo />
+        <div
+          className='bg-[#232323] flex items-center p-1 rounded-md outline outline-black gap-2' 
+        >
+          <Logo />
 
-        {/* Buttons */}
-        <div className='hidden sm:flex'>
-          {navbarList.map((item, index) => (
-            <Button
-              key={index}
-              children={item}
-              onClick={() => console.log(item)}
-            />
-          ))}
+          {/* Buttons */}
+          <div className='hidden sm:flex'>
+            {navbarList.map((item, index) => (
+              <Button
+                key={index}
+                children={item}
+                onClick={() => console.log(item)}
+              />
+            ))}
+          </div>
+
+          {/* Hamburger */}
+          <div>
+            {isOpen ? 
+              <BsX
+                size={30}
+                onClick={() => (setIsOpen(!isOpen))}
+                className='text-white sm:hidden'
+              />
+            :
+              <BsList 
+                size={30}
+                onClick={() => (setIsOpen(!isOpen))}
+                className='text-white sm:hidden'         
+              />
+            }
+          </div>
         </div>
 
-        {/* Hamburger */}
-        <div>
-          {isOpen ? 
-            <BsX
-              size={30}
-              onClick={() => (setIsOpen(!isOpen))}
-              className='text-white sm:hidden'
-            />
-          :
-            <BsList 
-              size={30}
-              onClick={() => (setIsOpen(!isOpen))}
-              className='text-white sm:hidden'         
-            />
-          }
-        </div>
+        {/* Comming soon Button */}
+        <Button 
+          className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+          children={"Coming Soon"}
+        />
       </div>
 
-      {/* Comming soon Button */}
-      <Button 
-        className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
-        children={"Coming Soon"}
-      />
-      </div>
-
+      {/* Hamburger dropdown */}
       {isOpen && (
       <div className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'>
         {navbarList.map((item, index) => (
