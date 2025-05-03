@@ -5,14 +5,14 @@ const FaqSection = () => {
   return (
 
     // FAQ Section 
-    <section className='flex flex-col gap-20 py-[75px]'>
+    <section className='flex flex-col gap-10 justify-center min-h-[calc(100vh-184px)] items-center '>
       <div className='max-w-[500px]'>
-        <h1 className='capitalize font-bold text-5xl'>
-          frequently asked question
+        <h1 className='capitalize font-bold text-3xl md:text-4xl'>
+          frequently asked questions
         </h1>
       </div>
 
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4 max-w-[500px]'>
         <FaqCard
           question={'What is Briswalker?'} 
           answer={`Briskwalker is a simple and focused web tool designed to help people plan brisk 
