@@ -5,9 +5,9 @@ const VisionSection = () => {
   return (
 
     // Vision Section
-    <section className='flex gap-20 py-[75px]'> 
+    <section className='flex flex-col md:flex-row gap-10 justify-center min-h-[calc(100vh-184px)] items-center '> 
 
-      <div className='flex flex-col gap-20'>
+      <div className='flex flex-col gap-10'>
         <VisionCard
           h1={'Vision'}
           p={`At Briskwalker, we imagine a world where walking is more than just movement — it’s a 
