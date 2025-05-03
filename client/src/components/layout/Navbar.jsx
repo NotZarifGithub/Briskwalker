@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../common/Button'
 import Logo from '../common/logo'
 import { BsList, BsX } from "react-icons/bs";
@@ -40,11 +41,12 @@ const Navbar = () => {
           {/* Buttons */}
           <div className='hidden sm:flex'>
             {navbarList.map((item, index) => (
-              <Button
-                key={index}
-                children={item}
-                onClick={() => console.log(item)}
-              />
+              <Link to={`/${item.toLowerCase()}`} key={index}>
+                <Button
+                  children={item}
+                  onClick={() => console.log(item)}
+                />
+              </Link>
             ))}
           </div>
 
