@@ -8,7 +8,7 @@ const FaqSection = () => {
     <section className='flex flex-col gap-10 justify-center min-h-[calc(100vh-184px)] items-center '>
       <div className='max-w-[500px]'>
         <h1 className='capitalize font-bold text-3xl md:text-4xl'>
-          frequently asked question
+          frequently asked questions
         </h1>
       </div>
 
