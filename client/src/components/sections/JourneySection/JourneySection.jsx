@@ -29,16 +29,16 @@ const JourneySection = () => {
   return (
 
     // Journey Section
-    <section className='flex flex-col gap-15 py-[75px]'>
+    <section className='flex flex-col gap-15 justify-center min-h-[calc(100vh-184px)] items-center'>
       <div>
-        <h1 className='capitalize font-bold text-5xl'>
+        <h1 className='capitalize font-bold text-3xl sm:text-4xl md:text-4xl'>
           the journeys
         </h1>
       </div>
-      <div className='flex gap-20 items-center'>
+      <div className='flex flex-col gap-10 items-center md:flex-row'>
 
         {/* Image */}
-        <div className='w-full max-w-[350px]'>
+        <div className='w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px]'>
           <img 
             src={briskwalk1} 
             alt="Briskwalk Image" 
@@ -47,7 +47,7 @@ const JourneySection = () => {
         </div>
 
         {/* Stats Card */}
-        <div className='grid grid-cols-2 gap-10'>
+        <div className='grid grid-cols-2 gap-5'>
           {current.stats.map((s, i) => (
             <StatsCard
               key={i}
