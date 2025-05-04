@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import Button from '../common/Button'
 import Logo from '../common/logo'
 import { BsList, BsX } from "react-icons/bs";
+import { motion } from 'motion/react';
 
 const navbarList = [
   "Home",
@@ -45,6 +46,7 @@ const Navbar = () => {
             {navbarList.map((item, index) => { 
               const path = `/${item.toLowerCase()}`;
               const isActive = location.pathname === path;
+
               return (
                 <Link to={path} key={index}>
                   <Button
@@ -76,18 +78,27 @@ const Navbar = () => {
         </div>
 
         {/* Comming soon Button */}
-        <Button 
-          className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
-          children={"Coming Soon"}
-        />
+        <motion.div
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.9 }}
+        >
+          <Button 
+            className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+            children={"Coming Soon"}
+          />
+        </motion.div>
       </div>
 
       {/* Hamburger dropdown */}
       {isOpen && (
-      <div className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'>
+      <div 
+        className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'
+
+      >
         {navbarList.map((item, index) => { 
           const path = `/${item.toLowerCase()}`;
           const isActive = location.pathname === path;
+
           return (
             <Link to={path} key={index}>
               <Button
