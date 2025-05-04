@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Button from '../common/Button'
 import Logo from '../common/logo'
 import { BsList, BsX } from "react-icons/bs";
@@ -13,6 +13,8 @@ const navbarList = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const location = useLocation();
 
   // Close mobile menu on screen resize >= sm
   useEffect(() => {
@@ -40,14 +42,19 @@ const Navbar = () => {
 
           {/* Buttons */}
           <div className='hidden sm:flex'>
-            {navbarList.map((item, index) => (
-              <Link to={`/${item.toLowerCase()}`} key={index}>
-                <Button
-                  children={item}
-                  onClick={() => console.log(item)}
-                />
-              </Link>
-            ))}
+            {navbarList.map((item, index) => { 
+              const path = `/${item.toLowerCase()}`;
+              const isActive = location.pathname === path;
+              return (
+                <Link to={path} key={index}>
+                  <Button
+                    children={item}
+                    onClick={() => console.log(item)}
+                    className={isActive ? "bg-[#3b3b3b] text-black" : "text-white"}
+                  />
+                </Link>
+              )
+            })}
           </div>
 
           {/* Hamburger */}
@@ -78,13 +85,19 @@ const Navbar = () => {
       {/* Hamburger dropdown */}
       {isOpen && (
       <div className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'>
-        {navbarList.map((item, index) => (
-          <Button
-            key={index}
-            children={item}
-            onClick={() => console.log(item)}
-          />          
-        ))}
+        {navbarList.map((item, index) => { 
+          const path = `/${item.toLowerCase()}`;
+          const isActive = location.pathname === path;
+          return (
+            <Link to={path} key={index}>
+              <Button
+                children={item}
+                onClick={() => console.log(item)}
+                className={isActive ? "bg-[#3b3b3b] text-black" : "text-white"}
+              />
+            </Link>
+          )
+        })}
       </div>
       )}
    </header>
