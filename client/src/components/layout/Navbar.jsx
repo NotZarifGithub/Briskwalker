@@ -3,14 +3,44 @@ import { Link, useLocation } from 'react-router-dom'
 import Button from '../common/Button'
 import Logo from '../common/logo'
 import { BsList, BsX } from "react-icons/bs";
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
+// Navbar list 
 const navbarList = [
   "Home",
   "Journeys",
   "Vision",
   "FAQ",
 ]
+
+// Variants for dropdown navbar animation
+const dropdownVariants = {
+  hidden: {
+    opacity: 0,   
+    y: -10,         
+    transition: {
+      duration: 0.1,
+      ease: "easeIn"
+    }
+  },
+  visible: {
+    opacity: 1,    
+    y: 0,      
+    transition: {
+      duration: 0.1,
+      ease: "easeOut"
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -10,     
+    transition: {
+      duration: 0.1,
+      ease: "easeIn"
+    }
+  }
+};
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -90,10 +120,15 @@ const Navbar = () => {
       </div>
 
       {/* Hamburger dropdown */}
+      <AnimatePresence>
       {isOpen && (
-      <div 
+      <motion.div 
+        key="dropdown"
         className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'
-
+        variants={dropdownVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         {navbarList.map((item, index) => { 
           const path = `/${item.toLowerCase()}`;
@@ -109,8 +144,10 @@ const Navbar = () => {
             </Link>
           )
         })}
-      </div>
+      </motion.div>
       )}
+      </AnimatePresence>
+
    </header>
   )
 }
