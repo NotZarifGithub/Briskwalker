@@ -15,7 +15,7 @@ const navbarList = [
 
 // Variants for dropdown navbar animation
 const dropdownVariants = {
-  hidden: {
+  initial: {
     opacity: 0,   
     y: -10,         
     transition: {
@@ -23,7 +23,7 @@ const dropdownVariants = {
       ease: "easeIn"
     }
   },
-  visible: {
+  animate: {
     opacity: 1,    
     y: 0,      
     transition: {
@@ -41,6 +41,27 @@ const dropdownVariants = {
   }
 };
 
+// Variants for menu animation
+const menuVariants = {
+  initial: {
+    opacity: 0,
+    rotate: 180,
+    scale: 0.8,
+    transition: { duration: 0.2 }
+  },
+  animate: {
+    opacity: 1,
+    rotate: 0,
+    scale: 1,
+    transition: { duration: 0.2 }
+  },
+  exit: {
+    opacity: 0,
+    rotate: -180,
+    scale: 0.8,
+    transition: { duration: 0.2 }
+  },
+}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,19 +112,19 @@ const Navbar = () => {
 
           {/* Hamburger */}
           <div>
-            {isOpen ? 
-              <BsX
-                size={30}
-                onClick={() => (setIsOpen(!isOpen))}
-                className='text-white sm:hidden'
-              />
-            :
-              <BsList 
-                size={30}
-                onClick={() => (setIsOpen(!isOpen))}
-                className='text-white sm:hidden'         
-              />
-            }
+            <AnimatePresence mode='wait'>
+            <motion.div
+              key={isOpen ? "close" : "menu"}
+              variants={menuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white sm:hidden cursor-pointer"
+            >
+              {isOpen ? <BsX size={30}/> : <BsList size={30}/>}
+            </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -126,8 +147,8 @@ const Navbar = () => {
         key="dropdown"
         className='absolute bg-[#232323] flex flex-col mt-60 items-center sm:hidden p-3 rounded-md outline outline-black gap-2'
         variants={dropdownVariants}
-        initial="hidden"
-        animate="visible"
+        initial="initial"
+        animate="animate"
         exit="exit"
       >
         {navbarList.map((item, index) => { 
