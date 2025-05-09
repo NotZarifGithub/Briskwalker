@@ -8,7 +8,7 @@ import Faq from './pages/Faq'
 
 function App() {
   return (
-    <div className='bg-orange-500 py-8 flex flex-col gap-5 px-6 sm:px-12'>
+    <div className='py-8 flex flex-col gap-5 px-6 sm:px-12'>
       <Navbar/>
       <Routes>
         <Route path='/home' element={<Home />}/>
