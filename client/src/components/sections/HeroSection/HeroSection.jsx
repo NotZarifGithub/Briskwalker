@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../common/Button'
+import { motion } from 'motion/react'
 
 const HeroSection = () => {
   return (
@@ -21,14 +22,24 @@ const HeroSection = () => {
 
       {/* Buttons */}
       <div className='gap-7 flex'>
-        <Button 
-          className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
-          children={"Coming Soon"}
-        />
-        <Button 
-          className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
-          children={"Watch Video"}
-        />
+        <motion.div
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.9 }}
+        >
+          <Button 
+            className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+            children={"Coming Soon"}
+          />
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.9 }}
+        >
+          <Button 
+            className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
+            children={"Watch Video"}
+          />
+        </motion.div>
       </div>
     </main>
   )
