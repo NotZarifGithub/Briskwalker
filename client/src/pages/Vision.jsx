@@ -3,7 +3,7 @@ import VisionSection from '../components/sections/VisionSection/VisionSection'
 
 const Vision = () => {
   return (
-    <div>
+    <div className='outline-1'>
       <VisionSection/>
     </div>
   )

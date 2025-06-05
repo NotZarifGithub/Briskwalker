@@ -3,7 +3,7 @@ import JourneySection from '../components/sections/JourneySection/JourneySection
 
 const Journeys = () => {
   return (
-    <div>
+    <div className='outline-1'>
       <JourneySection />
     </div>
   )

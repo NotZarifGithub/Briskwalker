@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../../common/Button'
 import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
 
 const HeroSection = () => {
   return (
@@ -26,10 +27,12 @@ const HeroSection = () => {
           whileHover={{ scale: 1.05 }} 
           whileTap={{ scale: 0.9 }}
         >
+        <Link to={'/create-route'}>
           <Button 
             className='px-5 py-3 outline-2 outline-black bg-[#232323] hover:rounded-'
-            children={"Coming Soon"}
+            children={"Plan Your Route"}
           />
+        </Link>
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.05 }} 

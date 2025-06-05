@@ -3,7 +3,7 @@ import FaqSection from '../components/sections/FaqSection/FaqSection'
 
 const Faq = () => {
   return (
-    <div>
+    <div className='outline-1'>
       <FaqSection />
     </div>
   )

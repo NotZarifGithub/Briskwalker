@@ -3,7 +3,7 @@ import HeroSection from '../components/sections/HeroSection/HeroSection'
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className='outline-1'>
       <HeroSection/>
     </div>
   )

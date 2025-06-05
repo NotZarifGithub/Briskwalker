@@ -5,6 +5,8 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Vision from './pages/Vision'
 import Faq from './pages/Faq'
+import CreateRoute from './pages/CreateRoute'
+import RouteMap from './pages/RouteMap'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path= '/journeys' element={<Journeys/>}/>
         <Route path='/vision' element={<Vision/>}/>
         <Route path='/faq' element={<Faq/>}/>
+        <Route path='/create-route' element={<CreateRoute/>}/>
+        <Route path='/route-map' element={<RouteMap/>}/>
       </Routes>
       <Footer/>
     </div>
